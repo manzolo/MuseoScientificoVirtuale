@@ -1,0 +1,10 @@
+services:
+  museo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: museo-scientifico-virtuale:local
+    container_name: museo-scientifico-virtuale
+    ports:
+      - "${PORT:-8080}:80"
+    restart: unless-stopped
