@@ -191,7 +191,7 @@ export default function App() {
         <div className="header-actions">
           <nav>
             <a href="#sale">{t.rooms}</a>
-            <a href="#futuro">{t.upcomingNav}</a>
+            {upcoming.length > 0 && <a href="#futuro">{t.upcomingNav}</a>}
             <a href="#didattica">{t.learningNav}</a>
             <a href="https://github.com/manzolo/MuseoScientificoVirtuale" target="_blank" rel="noreferrer">GitHub ↗</a>
           </nav>
@@ -261,25 +261,27 @@ export default function App() {
         </div>
       </section>
 
-      <section className="upcoming-section" id="futuro">
-        <div className="section-heading">
-          <div>
-            <div className="kicker"><span /> {t.growing}</div>
-            <h2>{t.nextOpenings}</h2>
+      {upcoming.length > 0 && (
+        <section className="upcoming-section" id="futuro">
+          <div className="section-heading">
+            <div>
+              <div className="kicker"><span /> {t.growing}</div>
+              <h2>{t.nextOpenings}</h2>
+            </div>
+            <p>{t.progressive}</p>
           </div>
-          <p>{t.progressive}</p>
-        </div>
-        <div className="upcoming-grid">
-          {upcoming.map((item) => (
-            <article key={item.number} style={{ '--accent': item.accent }}>
-              <span>{item.number}</span>
-              <small>{localize(item.category, language)} · {t.preparing}</small>
-              <h3>{localize(item.title, language)}</h3>
-              <p>{localize(item.description, language)}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+          <div className="upcoming-grid">
+            {upcoming.map((item) => (
+              <article key={item.number} style={{ '--accent': item.accent }}>
+                <span>{item.number}</span>
+                <small>{localize(item.category, language)} · {t.preparing}</small>
+                <h3>{localize(item.title, language)}</h3>
+                <p>{localize(item.description, language)}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="learning-section" id="didattica">
         <div className="learning-media" aria-hidden="true">

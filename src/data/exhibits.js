@@ -2,6 +2,7 @@ export const categories = [
   { id: 'all', label: { it: 'Tutte le sale', en: 'All rooms' } },
   { id: 'astronomy', label: { it: 'Astronomia', en: 'Astronomy' } },
   { id: 'chemistry', label: { it: 'Chimica', en: 'Chemistry' } },
+  { id: 'earth-science', label: { it: 'Scienze della Terra', en: 'Earth Science' } },
 ]
 
 export const exhibits = [
@@ -61,20 +62,23 @@ export const exhibits = [
     image: '/images/exhibits/starlife-3d.webp',
     accent: '#ffb45c',
   },
-]
-
-export const upcoming = [
   {
+    id: 'geotime-voyage',
     number: '05',
-    category: { it: 'Scienze della Terra', en: 'Earth Science' },
-    title: { it: 'Viaggio nel Tempo Geologico', en: 'Journey Through Geological Time' },
+    category: 'earth-science',
+    eyebrow: { it: 'Scienze della Terra', en: 'Earth Science' },
+    title: { it: 'GeoTime Voyage', en: 'GeoTime Voyage' },
     description: {
-      it: 'La Terra cambia dal Precambriano a oggi, con una timeline esplorabile e overlay dei principali eventi geologici e biologici.',
-      en: 'Explore Earth from the Precambrian to today, with geological and biological events layered over an interactive timeline.',
+      it: 'Viaggia nel tempo geologico della Terra: trascina la timeline o ruota il globo per scoprire i principali eventi geologici e biologici dall’Adeano a oggi.',
+      en: 'Travel through Earth’s geological time: drag the timeline or spin the globe to discover the major geological and biological events from the Hadean to today.',
     },
+    url: 'https://manzolo.github.io/GeoTimeVoyage/',
+    image: '/images/exhibits/geotime-voyage.webp',
     accent: '#54d6a0',
   },
 ]
+
+export const upcoming = []
 
 export const learningProject = {
   title: { it: 'Quiz Didattici', en: 'Educational Quizzes' },
