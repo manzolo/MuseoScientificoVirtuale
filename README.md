@@ -1,74 +1,52 @@
 # Museo Scientifico Virtuale
 
-Prototipo 3D di un museo scientifico immersivo costruito con React, Three.js e React Three Fiber.
+Portale leggero ed estendibile che raccoglie esperienze scientifiche
+interattive:
 
-## Prima fase
-
-- Hall centrale con mappa e quattro accessi
-- Ala Chimica con installazione Tavola Periodica 3D
-- Ala Astronomia con Sistema Solare
-- Ala Esopianeti con visualizzazione galattica
-- Spazio predisposto per la futura Ala Biologia
-- Navigazione WASD, mouse look, fly mode e teletrasporto
-- Interfaccia responsive in italiano e inglese
-
-Le installazioni della scena base sono rappresentazioni native leggere. I pannelli informativi collegano ai progetti originali:
-
-- [Tavola Periodica 3D](https://manzolo.github.io/TavolaPeriodica3D/)
-- [Sistema Solare](https://manzolo.github.io/SistemaSolare/)
 - [IFAC Galaxy](https://manzolo.github.io/IfacGalaxy/)
+- [Sistema Solare](https://manzolo.github.io/SistemaSolare/)
+- [Tavola Periodica 3D](https://manzolo.github.io/TavolaPeriodica3D/)
+
+Il precedente prototipo immersivo è conservato nel branch `museo-3d`.
 
 ## Sviluppo
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Build di produzione:
-
-```bash
-npm run build
-```
-
-## Docker
-
-Avvio locale tramite container Nginx:
+Oppure tramite Docker:
 
 ```bash
 make build
 make up
 ```
 
-Il museo sarà disponibile su `http://localhost:8080`. Per usare un'altra
-porta:
+Il sito sarà disponibile su `http://localhost:8080`.
 
-```bash
-make up PORT=3000
+## Aggiungere una sala
+
+Le sale sono definite in `src/data/exhibits.js`. Per pubblicare una nuova
+esperienza è sufficiente aggiungere un oggetto all'array `exhibits`:
+
+```js
+{
+  id: 'nome-progetto',
+  number: '04',
+  category: 'biology',
+  eyebrow: 'Biologia',
+  title: 'Titolo',
+  description: 'Descrizione breve.',
+  url: 'https://manzolo.github.io/NomeProgetto/',
+  accent: '#54d6a0',
+  visual: 'elements',
+  status: 'Esplora',
+}
 ```
 
-Comandi principali:
+## GitHub Pages
 
-```bash
-make logs
-make ps
-make restart
-make down
-make clean
-```
-
-## Controlli
-
-- `WASD` o frecce: movimento
-- Mouse: visuale
-- `Shift`: movimento rapido
-- `F`: alterna cammino/volo
-- `Spazio` / `Ctrl`: salita/discesa in modalità volo
-
-## Architettura
-
-I renderer delle installazioni sono isolati in `src/components/Museum.jsx`. Nella fase di integrazione verranno sostituiti o estesi con componenti condivisi estratti dai tre repository originali, mantenendo invariati navigazione, stanze e UI.
-
-## Licenza
-
-Da definire prima della pubblicazione.
+Il workflow `.github/workflows/deploy-pages.yml` pubblica automaticamente
+`main` su GitHub Pages. Nel repository GitHub impostare **Settings → Pages →
+Source** su **GitHub Actions**.
