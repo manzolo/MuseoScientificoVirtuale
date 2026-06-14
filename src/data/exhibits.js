@@ -105,6 +105,20 @@ export const exhibits = [
     image: '/images/exhibits/gene-flow-3d.webp',
     accent: '#e26db0',
   },
+  {
+    id: 'evo-tree-3d',
+    number: '08',
+    category: 'biology',
+    eyebrow: { it: 'Biologia', en: 'Biology' },
+    title: { it: 'EvoTree 3D', en: 'EvoTree 3D' },
+    description: {
+      it: 'Esplora l’albero della vita in 3D: da LUCA ai tre domini, segui l’evoluzione lungo una timeline con i grandi eventi della storia biologica.',
+      en: 'Explore the tree of life in 3D: from LUCA to the three domains, follow evolution along a timeline of the major events in life’s history.',
+    },
+    url: 'https://manzolo.github.io/EvoTree3D/',
+    image: '/images/exhibits/evo-tree-3d.webp',
+    accent: '#8bd450',
+  },
 ]
 
 export const upcoming = []
