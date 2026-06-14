@@ -147,6 +147,11 @@ Per contribuire:
 
 Ogni consiglio costruttivo e ogni forma di aiuto sono ben accetti.
 
+### Licenza
+
+Il progetto è distribuito con licenza [MIT](LICENSE). È possibile utilizzarlo,
+studiarlo, modificarlo e redistribuirlo nel rispetto dei termini della licenza.
+
 ---
 
 ## English
@@ -290,5 +295,5 @@ Constructive feedback and any kind of help are greatly appreciated.
 
 ## License
 
-No license has been selected yet. Until a license is added, normal copyright
-rules apply even though the source code is publicly visible.
+This project is released under the [MIT License](LICENSE). You may use, study,
+modify and redistribute it under the terms of the license.
