@@ -47,19 +47,23 @@ export const exhibits = [
     image: '/images/exhibits/tavola-periodica-3d.webp',
     accent: '#ff9d52',
   },
+  {
+    id: 'starlife-3d',
+    number: '04',
+    category: 'astronomy',
+    eyebrow: { it: 'Ciclo di vita delle stelle', en: 'Stellar life cycle' },
+    title: { it: 'StarLife 3D', en: 'StarLife 3D' },
+    description: {
+      it: 'Scegli la massa di una stella e seguine l’evoluzione in 3D, dalla nebulosa fino a nana bianca, stella di neutroni o buco nero.',
+      en: 'Pick a star’s mass and follow its evolution in 3D, from nebula to white dwarf, neutron star or black hole.',
+    },
+    url: 'https://manzolo.github.io/StarLife3D/',
+    image: '/images/exhibits/starlife-3d.webp',
+    accent: '#ffb45c',
+  },
 ]
 
 export const upcoming = [
-  {
-    number: '04',
-    category: { it: 'Astronomia', en: 'Astronomy' },
-    title: { it: 'Evoluzione Stellare', en: 'Stellar Evolution' },
-    description: {
-      it: 'Una timeline interattiva sul ciclo di vita delle stelle, con transizioni tra nana rossa, gigante, supernova e residui stellari.',
-      en: 'An interactive timeline of stellar life cycles, from red dwarfs and giants to supernovae and stellar remnants.',
-    },
-    accent: '#ffb45c',
-  },
   {
     number: '05',
     category: { it: 'Scienze della Terra', en: 'Earth Science' },
