@@ -5,9 +5,10 @@
 Un portale leggero e in continua evoluzione che raccoglie esperienze
 scientifiche interattive.
 
-> Questo progetto nasce dalla curiosità e dalla voglia di imparare. Non ho una
-> formazione specifica nello sviluppo web o nella divulgazione scientifica:
-> suggerimenti, correzioni, idee e contributi sono davvero benvenuti.
+> Questo progetto nasce dalla curiosità e dalla voglia di imparare. Sono un
+> informatico, ma non ho una formazione scientifica specifica: suggerimenti,
+> correzioni, idee e contributi sui contenuti e sulla divulgazione sono davvero
+> benvenuti.
 
 ## Italiano
 
@@ -277,9 +278,10 @@ Every later push to `main` will automatically deploy a new version.
 
 ### Contributing
 
-This project is also a learning journey. I do not have a formal background in
-web development or science communication, but I want to learn and improve.
-Advice, corrections, ideas and contributions are sincerely welcome.
+This project is also a learning journey. I work in computer science, but I do
+not have a formal scientific background. I want to learn and improve, so
+advice, corrections, ideas and contributions about the scientific content and
+its communication are sincerely welcome.
 
 Contributions do not have to be code. Scientific feedback, text corrections,
 accessibility suggestions, design ideas and maintainability improvements are
