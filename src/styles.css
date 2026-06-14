@@ -120,6 +120,31 @@ button { color: inherit; font: inherit; }
 .visit b { font-size: 17px; font-weight: 300; transition: transform 160ms ease; }
 .exhibit-card:hover .visit b { transform: translate(3px, -3px); }
 
+.learning-section { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(380px, .88fr); min-height: 680px; background: #dfe5ff; color: #101b36; }
+.learning-media { position: relative; display: grid; place-items: center; min-height: 620px; overflow: hidden; background: radial-gradient(circle at 50% 45%, rgba(163,177,255,.65), transparent 32%), linear-gradient(145deg, #5369d3, #7452a8); }
+.learning-media::before { content: ''; position: absolute; inset: 0; opacity: .22; background-image: linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px); background-size: 54px 54px; }
+.learning-symbol { position: relative; width: min(58%, 390px); aspect-ratio: 1; border: 1px solid rgba(255,255,255,.42); border-radius: 50%; box-shadow: 0 0 80px rgba(11,18,65,.18), inset 0 0 55px rgba(255,255,255,.08); }
+.learning-symbol::before, .learning-symbol::after { content: ''; position: absolute; inset: 15%; border: 1px solid rgba(255,255,255,.24); border-radius: 50%; transform: rotateX(68deg); }
+.learning-symbol::after { transform: rotateY(68deg); }
+.learning-symbol > span { position: absolute; left: 50%; top: 50%; translate: -50% -50%; color: #fff; font: 300 clamp(90px, 11vw, 160px) 'Manrope'; text-shadow: 0 0 28px rgba(255,255,255,.28); }
+.learning-symbol i { position: absolute; padding: 7px 9px; border: 1px solid rgba(255,255,255,.3); background: rgba(22,25,80,.3); color: #f2f4ff; font: 400 10px 'DM Mono'; font-style: normal; letter-spacing: .08em; }
+.learning-symbol i:nth-of-type(1) { top: 5%; left: 18%; }
+.learning-symbol i:nth-of-type(2) { top: 25%; right: -4%; }
+.learning-symbol i:nth-of-type(3) { bottom: 12%; right: 13%; }
+.learning-symbol i:nth-of-type(4) { bottom: 21%; left: -3%; }
+.learning-media > span { position: absolute; z-index: 1; left: 28px; bottom: 24px; padding: 9px 12px; background: rgba(11,20,43,.85); color: #dfe5ff; font: 400 8px 'DM Mono'; letter-spacing: .14em; text-transform: uppercase; }
+.learning-copy { display: flex; flex-direction: column; justify-content: center; padding: 80px clamp(36px, 6vw, 90px); }
+.learning-copy .kicker { color: #596fd8; }
+.learning-copy h2 { margin: 20px 0 25px; font-size: clamp(48px, 5vw, 76px); font-weight: 400; line-height: .98; letter-spacing: -.06em; }
+.learning-copy p { max-width: 610px; margin: 0 0 18px; color: #536078; font-size: 14px; line-height: 1.75; }
+.learning-copy .learning-lead { color: #1d2946; font-size: 18px; line-height: 1.65; }
+.subject-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0 32px; }
+.subject-list span { padding: 7px 10px; border: 1px solid rgba(51,70,143,.22); color: #465ab5; font: 500 8px 'DM Mono'; letter-spacing: .1em; text-transform: uppercase; }
+.learning-actions { display: flex; gap: 10px; }
+.learning-actions a { display: flex; align-items: center; justify-content: space-between; min-width: 170px; padding: 14px 16px; border: 1px solid #4e63c6; color: #3248ad; font: 500 9px 'DM Mono'; letter-spacing: .1em; text-transform: uppercase; transition: 160ms ease; }
+.learning-actions a:first-child { background: #5369d3; color: #fff; }
+.learning-actions a:hover { translate: 0 -2px; box-shadow: 0 8px 20px rgba(45,61,130,.12); }
+
 .upcoming-section { background: #0a1724; }
 .upcoming-section .section-heading { color: #edf9fa; }
 .upcoming-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; max-width: 1300px; margin: auto; background: rgba(138,171,183,.18); }
@@ -142,6 +167,8 @@ footer .brand { color: #b8c9cf; }
   .exhibit-card { min-height: 0; display: grid; grid-template-columns: 44% 56%; }
   .exhibit-visual { height: 350px; }
   .card-copy { display: flex; flex-direction: column; justify-content: center; }
+  .learning-section { grid-template-columns: 1fr; }
+  .learning-media { min-height: 520px; }
   .upcoming-grid { grid-template-columns: 1fr; }
 }
 
@@ -162,6 +189,10 @@ footer .brand { color: #b8c9cf; }
   .filters button { flex: 0 0 auto; }
   .exhibit-card { display: block; }
   .exhibit-visual { height: 300px; }
+  .learning-media { min-height: 320px; }
+  .learning-copy { padding: 65px 22px; }
+  .learning-copy h2 { font-size: 48px; }
+  .learning-actions { flex-direction: column; }
   footer { align-items: flex-start; flex-direction: column; }
 }
 

@@ -25,6 +25,11 @@ interattiva indipendente:
 - [Tavola Periodica 3D](https://manzolo.github.io/TavolaPeriodica3D/) —
   esplorazione tridimensionale degli elementi chimici.
 
+Il museo ospita anche
+[Quiz Didattici](https://manzolo.github.io/quiz-didattici/), una raccolta nata
+per aiutare le mie figlie durante la scuola media con esercizi di matematica e
+italiano.
+
 Prossime aperture:
 
 - **Evoluzione Stellare** — timeline interattiva sul ciclo di vita delle stelle
@@ -168,6 +173,11 @@ to exploring science. Each room opens an independent interactive experience:
   and celestial bodies;
 - [3D Periodic Table](https://manzolo.github.io/TavolaPeriodica3D/) — a
   three-dimensional exploration of chemical elements.
+
+The museum also features
+[Educational Quizzes](https://manzolo.github.io/quiz-didattici/), a collection
+I started to help my daughters through middle school with maths and Italian
+exercises.
 
 Planned rooms:
 

@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
-import { categories, exhibits, upcoming } from './data/exhibits'
+import { categories, exhibits, learningProject, upcoming } from './data/exhibits'
 
 const copy = {
   it: {
     museum: 'Museo Scientifico\nVirtuale',
     rooms: 'Sale',
+    learningNav: 'Quiz',
     upcomingNav: 'In arrivo',
     archive: 'Archivio scientifico digitale',
     heroTitle: <>La scienza,<br /><em>da esplorare.</em></>,
     heroBody: 'Un museo virtuale che raccoglie esperienze interattive per osservare, sperimentare e capire il mondo.',
     visitRooms: 'Visita le sale',
-    collection: 'Collezione · 001—003',
+    collection: 'Collezione · 001—004',
     activeExperiences: 'esperienze attive',
     curiosity: 'curiosità',
     freeAccess: 'accesso libero',
@@ -20,6 +21,9 @@ const copy = {
     filter: 'Filtra le sale',
     room: 'Sala',
     explore: 'Esplora',
+    discoverQuizzes: 'Apri i quiz',
+    viewCode: 'Vedi il codice',
+    educationalProject: 'Progetto didattico',
     growing: 'Il museo cresce',
     nextOpenings: 'Prossime aperture',
     progressive: 'Nuove sale ed esperimenti verranno aggiunti progressivamente.',
@@ -31,12 +35,13 @@ const copy = {
   en: {
     museum: 'Virtual Science\nMuseum',
     rooms: 'Rooms',
+    learningNav: 'Quizzes',
     upcomingNav: 'Coming soon',
     archive: 'Digital science archive',
     heroTitle: <>Science,<br /><em>made explorable.</em></>,
     heroBody: 'A virtual museum of interactive experiences for observing, experimenting and understanding our world.',
     visitRooms: 'Visit the rooms',
-    collection: 'Collection · 001—003',
+    collection: 'Collection · 001—004',
     activeExperiences: 'active experiences',
     curiosity: 'curiosity',
     freeAccess: 'free access',
@@ -46,6 +51,9 @@ const copy = {
     filter: 'Filter rooms',
     room: 'Room',
     explore: 'Explore',
+    discoverQuizzes: 'Open quizzes',
+    viewCode: 'View source',
+    educationalProject: 'Educational project',
     growing: 'The museum grows',
     nextOpenings: 'Upcoming exhibits',
     progressive: 'New rooms and experiments will be added progressively.',
@@ -135,6 +143,7 @@ export default function App() {
         <div className="header-actions">
           <nav>
             <a href="#sale">{t.rooms}</a>
+            <a href="#didattica">{t.learningNav}</a>
             <a href="#futuro">{t.upcomingNav}</a>
             <a href="https://github.com/manzolo/MuseoScientificoVirtuale" target="_blank" rel="noreferrer">GitHub ↗</a>
           </nav>
@@ -162,7 +171,7 @@ export default function App() {
           <span className="object-label">{t.collection}</span>
         </div>
         <div className="hero-stats">
-          <span><b>{String(exhibits.length).padStart(2, '0')}</b> {t.activeExperiences}</span>
+          <span><b>{String(exhibits.length + 1).padStart(2, '0')}</b> {t.activeExperiences}</span>
           <span><b>∞</b> {t.curiosity}</span>
           <span><b>OPEN</b> {t.freeAccess}</span>
         </div>
@@ -198,6 +207,38 @@ export default function App() {
           {filteredExhibits.map((exhibit) => (
             <ExhibitCard key={exhibit.id} exhibit={exhibit} language={language} t={t} />
           ))}
+        </div>
+      </section>
+
+      <section className="learning-section" id="didattica">
+        <div className="learning-media" aria-hidden="true">
+          <div className="learning-symbol">
+            <span>?</span>
+            <i>7 × 8</i>
+            <i>MCD</i>
+            <i>3/4</i>
+            <i>ABC</i>
+          </div>
+          <span>{t.educationalProject} · 04</span>
+        </div>
+        <div className="learning-copy">
+          <div className="kicker"><span /> {localize(learningProject.eyebrow, language)}</div>
+          <h2>{localize(learningProject.title, language)}</h2>
+          <p className="learning-lead">{localize(learningProject.description, language)}</p>
+          <p>{localize(learningProject.details, language)}</p>
+          <div className="subject-list">
+            {localize(learningProject.subjects, language).map((subject) => (
+              <span key={subject}>{subject}</span>
+            ))}
+          </div>
+          <div className="learning-actions">
+            <a href={learningProject.url} target="_blank" rel="noreferrer">
+              {t.discoverQuizzes} <span>↗</span>
+            </a>
+            <a href={learningProject.repository} target="_blank" rel="noreferrer">
+              {t.viewCode} <span>↗</span>
+            </a>
+          </div>
         </div>
       </section>
 

@@ -71,3 +71,22 @@ export const upcoming = [
     accent: '#54d6a0',
   },
 ]
+
+export const learningProject = {
+  title: { it: 'Quiz Didattici', en: 'Educational Quizzes' },
+  eyebrow: { it: 'Imparare insieme', en: 'Learning together' },
+  description: {
+    it: 'Questo progetto è nato per aiutare le mie figlie durante la scuola media: una raccolta semplice e gratuita di quiz con cui ripassare, esercitarsi e imparare facendo.',
+    en: 'This project started as a way to help my daughters through middle school: a simple, free collection of quizzes for reviewing, practising and learning by doing.',
+  },
+  details: {
+    it: 'Comprende esercizi di matematica su equivalenze, operazioni, frazioni, espressioni, geometria, MCD e mcm, oltre a quiz di italiano sui tempi verbali. I risultati restano nel browser e il progetto continua a crescere.',
+    en: 'It includes maths exercises on conversions, operations, fractions, expressions, geometry, GCD and LCM, plus Italian verb tense quizzes. Results stay in the browser and the project keeps growing.',
+  },
+  subjects: {
+    it: ['Scuola media', 'Matematica', 'Italiano', 'Progressi locali'],
+    en: ['Middle school', 'Mathematics', 'Italian', 'Local progress'],
+  },
+  url: 'https://manzolo.github.io/quiz-didattici/',
+  repository: 'https://github.com/manzolo/quiz-didattici',
+}
