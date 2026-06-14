@@ -49,16 +49,18 @@ export const exhibits = [
 export const upcoming = [
   {
     number: '04',
-    category: 'Biologia',
-    title: 'La vita al microscopio',
-    description: 'Una nuova sala dedicata a cellule, DNA ed ecosistemi.',
-    accent: '#54d6a0',
+    category: 'Astronomia',
+    title: 'Evoluzione Stellare',
+    description:
+      'Una timeline interattiva sul ciclo di vita delle stelle, con transizioni tra nana rossa, gigante, supernova e residui stellari.',
+    accent: '#ffb45c',
   },
   {
     number: '05',
-    category: 'Fisica',
-    title: 'Laboratorio delle forze',
-    description: 'Esperimenti interattivi su energia, moto e gravità.',
-    accent: '#ffd166',
+    category: 'Scienze della Terra',
+    title: 'Viaggio nel Tempo Geologico',
+    description:
+      'La Terra cambia dal Precambriano a oggi, con una timeline esplorabile e overlay dei principali eventi geologici e biologici.',
+    accent: '#54d6a0',
   },
 ]

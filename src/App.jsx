@@ -156,12 +156,6 @@ export default function App() {
               <p>{item.description}</p>
             </article>
           ))}
-          <article className="open-slot">
-            <span>+</span>
-            <small>Spazio aperto</small>
-            <h3>La prossima idea</h3>
-            <p>La struttura è pronta ad accogliere nuovi progetti scientifici.</p>
-          </article>
         </div>
       </section>
 
