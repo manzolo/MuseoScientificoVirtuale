@@ -3,6 +3,7 @@ export const categories = [
   { id: 'astronomy', label: { it: 'Astronomia', en: 'Astronomy' } },
   { id: 'chemistry', label: { it: 'Chimica', en: 'Chemistry' } },
   { id: 'earth-science', label: { it: 'Scienze della Terra', en: 'Earth Science' } },
+  { id: 'biology', label: { it: 'Biologia', en: 'Biology' } },
 ]
 
 export const exhibits = [
@@ -75,6 +76,20 @@ export const exhibits = [
     url: 'https://manzolo.github.io/GeoTimeVoyage/',
     image: '/images/exhibits/geotime-voyage.webp',
     accent: '#54d6a0',
+  },
+  {
+    id: 'cell-cycle-3d',
+    number: '06',
+    category: 'biology',
+    eyebrow: { it: 'Biologia', en: 'Biology' },
+    title: { it: 'CellCycle 3D', en: 'CellCycle 3D' },
+    description: {
+      it: 'Un simulatore 3D della divisione cellulare: segui passo passo le fasi della mitosi e della meiosi e confrontale tra loro.',
+      en: 'A 3D cell-division simulator: step through the phases of mitosis and meiosis and compare them side by side.',
+    },
+    url: 'https://manzolo.github.io/CellCycle3D/',
+    image: '/images/exhibits/cell-cycle-3d.webp',
+    accent: '#3fd0d6',
   },
 ]
 
