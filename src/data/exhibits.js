@@ -91,6 +91,20 @@ export const exhibits = [
     image: '/images/exhibits/cell-cycle-3d.webp',
     accent: '#3fd0d6',
   },
+  {
+    id: 'gene-flow-3d',
+    number: '07',
+    category: 'biology',
+    eyebrow: { it: 'Biologia', en: 'Biology' },
+    title: { it: 'GeneFlow 3D', en: 'GeneFlow 3D' },
+    description: {
+      it: 'Esplora la doppia elica del DNA in 3D e segui il flusso dell’informazione genetica: trascrizione, traduzione e codice genetico.',
+      en: 'Explore the DNA double helix in 3D and follow the flow of genetic information: transcription, translation and the genetic code.',
+    },
+    url: 'https://manzolo.github.io/GeneFlow3D/',
+    image: '/images/exhibits/gene-flow-3d.webp',
+    accent: '#e26db0',
+  },
 ]
 
 export const upcoming = []
