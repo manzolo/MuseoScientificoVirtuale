@@ -210,6 +210,26 @@ export default function App() {
         </div>
       </section>
 
+      <section className="upcoming-section" id="futuro">
+        <div className="section-heading">
+          <div>
+            <div className="kicker"><span /> {t.growing}</div>
+            <h2>{t.nextOpenings}</h2>
+          </div>
+          <p>{t.progressive}</p>
+        </div>
+        <div className="upcoming-grid">
+          {upcoming.map((item) => (
+            <article key={item.number} style={{ '--accent': item.accent }}>
+              <span>{item.number}</span>
+              <small>{localize(item.category, language)} · {t.preparing}</small>
+              <h3>{localize(item.title, language)}</h3>
+              <p>{localize(item.description, language)}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="learning-section" id="didattica">
         <div className="learning-media" aria-hidden="true">
           <div className="learning-symbol">
@@ -239,26 +259,6 @@ export default function App() {
               {t.viewCode} <span>↗</span>
             </a>
           </div>
-        </div>
-      </section>
-
-      <section className="upcoming-section" id="futuro">
-        <div className="section-heading">
-          <div>
-            <div className="kicker"><span /> {t.growing}</div>
-            <h2>{t.nextOpenings}</h2>
-          </div>
-          <p>{t.progressive}</p>
-        </div>
-        <div className="upcoming-grid">
-          {upcoming.map((item) => (
-            <article key={item.number} style={{ '--accent': item.accent }}>
-              <span>{item.number}</span>
-              <small>{localize(item.category, language)} · {t.preparing}</small>
-              <h3>{localize(item.title, language)}</h3>
-              <p>{localize(item.description, language)}</p>
-            </article>
-          ))}
         </div>
       </section>
 
