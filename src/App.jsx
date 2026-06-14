@@ -11,7 +11,7 @@ const copy = {
     heroTitle: <>La scienza,<br /><em>da esplorare.</em></>,
     heroBody: 'Un museo virtuale che raccoglie esperienze interattive per osservare, sperimentare e capire il mondo.',
     visitRooms: 'Visita le sale',
-    collection: 'Collezione · 001—004',
+    collection: 'Collezione',
     activeExperiences: 'esperienze attive',
     curiosity: 'curiosità',
     freeAccess: 'accesso libero',
@@ -24,10 +24,14 @@ const copy = {
     discoverQuizzes: 'Apri i quiz',
     viewCode: 'Vedi il codice',
     educationalProject: 'Progetto didattico',
+    learningSection: 'Sezione didattica',
     growing: 'Il museo cresce',
     nextOpenings: 'Prossime aperture',
     progressive: 'Nuove sale ed esperimenti verranno aggiunti progressivamente.',
     preparing: 'in preparazione',
+    quizCta: 'Apri la sezione quiz',
+    quizTeaser: 'Una sezione a parte, pensata per ripassare ed esercitarsi.',
+    backToMuseum: 'Torna al museo',
     footer: 'Esperienze scientifiche interattive, aperte a tutti.',
     openSource: 'Open source',
     language: 'Lingua',
@@ -44,7 +48,7 @@ const copy = {
     heroTitle: <>Science,<br /><em>made explorable.</em></>,
     heroBody: 'A virtual museum of interactive experiences for observing, experimenting and understanding our world.',
     visitRooms: 'Visit the rooms',
-    collection: 'Collection · 001—004',
+    collection: 'Collection',
     activeExperiences: 'active experiences',
     curiosity: 'curiosity',
     freeAccess: 'free access',
@@ -57,10 +61,14 @@ const copy = {
     discoverQuizzes: 'Open quizzes',
     viewCode: 'View source',
     educationalProject: 'Educational project',
+    learningSection: 'Learning section',
     growing: 'The museum grows',
     nextOpenings: 'Upcoming exhibits',
     progressive: 'New rooms and experiments will be added progressively.',
     preparing: 'in development',
+    quizCta: 'Open the quiz section',
+    quizTeaser: 'A separate section, made for reviewing and practising.',
+    backToMuseum: 'Back to the museum',
     footer: 'Interactive science experiences, open to everyone.',
     openSource: 'Open source',
     language: 'Language',
@@ -93,11 +101,27 @@ function ExhibitCard({ exhibit, language, t }) {
         <img src={image} alt="" loading="lazy" />
       </div>
       <div className="card-copy">
+        <span className="card-ghost" aria-hidden="true">{exhibit.number}</span>
         <h3>{localize(exhibit.title, language)}</h3>
         <p>{localize(exhibit.description, language)}</p>
         <span className="visit">{t.explore}<b>↗</b></span>
       </div>
     </a>
+  )
+}
+
+function LearningVisual({ label }) {
+  return (
+    <div className="learning-media" aria-hidden="true">
+      <div className="learning-symbol">
+        <span>?</span>
+        <i>7 × 8</i>
+        <i>MCD</i>
+        <i>3/4</i>
+        <i>ABC</i>
+      </div>
+      <span>{label}</span>
+    </div>
   )
 }
 
@@ -147,61 +171,9 @@ function ThemeSwitch({ theme, setTheme, t }) {
   )
 }
 
-export default function App() {
-  const [language, setLanguage] = useState('it')
-  const [category, setCategory] = useState('all')
-  const [theme, setTheme] = useState(
-    () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
-  )
-  const t = copy[language]
-  const filteredExhibits = useMemo(
-    () => category === 'all'
-      ? exhibits
-      : exhibits.filter((exhibit) => exhibit.category === category),
-    [category],
-  )
-
-  useEffect(() => {
-    document.documentElement.lang = language
-  }, [language])
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    document.documentElement.style.colorScheme = theme
-    document.querySelector('#theme-color')?.setAttribute(
-      'content',
-      theme === 'dark' ? '#07111f' : '#f0f2ee',
-    )
-  }, [theme])
-
-  useEffect(() => {
-    const media = window.matchMedia('(prefers-color-scheme: dark)')
-    const followBrowserTheme = (event) => setTheme(event.matches ? 'dark' : 'light')
-    media.addEventListener('change', followBrowserTheme)
-    return () => media.removeEventListener('change', followBrowserTheme)
-  }, [])
-
+function HomeView({ language, t, category, setCategory, filteredExhibits }) {
   return (
-    <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label={t.museum.replace('\n', ' ')}>
-          <span className="brand-mark">MSV</span>
-          <span>{t.museum.split('\n').map((line) => <span key={line}>{line}</span>)}</span>
-        </a>
-        <div className="header-actions">
-          <nav>
-            <a href="#sale">{t.rooms}</a>
-            {upcoming.length > 0 && <a href="#futuro">{t.upcomingNav}</a>}
-            <a href="#didattica">{t.learningNav}</a>
-            <a href="https://github.com/manzolo/MuseoScientificoVirtuale" target="_blank" rel="noreferrer">GitHub ↗</a>
-          </nav>
-          <div className="display-controls">
-            <ThemeSwitch theme={theme} setTheme={setTheme} t={t} />
-            <LanguageSwitch language={language} setLanguage={setLanguage} label={t.language} />
-          </div>
-        </div>
-      </header>
-
+    <>
       <section className="hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-copy">
@@ -219,10 +191,12 @@ export default function App() {
             <span className="ring ring-c" />
             <i className="satellite" />
           </div>
-          <span className="object-label">{t.collection}</span>
+          <span className="object-label">
+            {t.collection} · 001—{String(exhibits.length).padStart(3, '0')}
+          </span>
         </div>
         <div className="hero-stats">
-          <span><b>{String(exhibits.length + 1).padStart(2, '0')}</b> {t.activeExperiences}</span>
+          <span><b>{String(exhibits.length).padStart(2, '0')}</b> {t.activeExperiences}</span>
           <span><b>∞</b> {t.curiosity}</span>
           <span><b>OPEN</b> {t.freeAccess}</span>
         </div>
@@ -283,17 +257,31 @@ export default function App() {
         </section>
       )}
 
-      <section className="learning-section" id="didattica">
-        <div className="learning-media" aria-hidden="true">
-          <div className="learning-symbol">
-            <span>?</span>
-            <i>7 × 8</i>
-            <i>MCD</i>
-            <i>3/4</i>
-            <i>ABC</i>
-          </div>
-          <span>{t.educationalProject} · 04</span>
+      <section className="quiz-banner" id="didattica">
+        <div className="quiz-banner-copy">
+          <div className="kicker"><span /> {localize(learningProject.eyebrow, language)}</div>
+          <h2>{localize(learningProject.title, language)}</h2>
+          <p>{t.quizTeaser}</p>
+          <a className="quiz-banner-cta" href="#quiz">
+            {t.quizCta} <span>↗</span>
+          </a>
         </div>
+        <div className="quiz-banner-visual">
+          <LearningVisual label={t.learningSection} />
+        </div>
+      </section>
+    </>
+  )
+}
+
+function QuizView({ language, t }) {
+  return (
+    <section className="quiz-page">
+      <a className="back-link" href="#top">
+        <span>←</span> {t.backToMuseum}
+      </a>
+      <div className="learning-section">
+        <LearningVisual label={t.learningSection} />
         <div className="learning-copy">
           <div className="kicker"><span /> {localize(learningProject.eyebrow, language)}</div>
           <h2>{localize(learningProject.title, language)}</h2>
@@ -313,7 +301,90 @@ export default function App() {
             </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  )
+}
+
+export default function App() {
+  const [language, setLanguage] = useState('it')
+  const [category, setCategory] = useState('all')
+  const [route, setRoute] = useState(
+    () => (window.location.hash === '#quiz' ? 'quiz' : 'home'),
+  )
+  const [theme, setTheme] = useState(
+    () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+  )
+  const t = copy[language]
+  const filteredExhibits = useMemo(
+    () => category === 'all'
+      ? exhibits
+      : exhibits.filter((exhibit) => exhibit.category === category),
+    [category],
+  )
+
+  useEffect(() => {
+    document.documentElement.lang = language
+  }, [language])
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.documentElement.style.colorScheme = theme
+    document.querySelector('#theme-color')?.setAttribute(
+      'content',
+      theme === 'dark' ? '#07111f' : '#f0f2ee',
+    )
+  }, [theme])
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)')
+    const followBrowserTheme = (event) => setTheme(event.matches ? 'dark' : 'light')
+    media.addEventListener('change', followBrowserTheme)
+    return () => media.removeEventListener('change', followBrowserTheme)
+  }, [])
+
+  useEffect(() => {
+    const onHash = () => {
+      const next = window.location.hash === '#quiz' ? 'quiz' : 'home'
+      setRoute(next)
+      if (next === 'quiz') window.scrollTo(0, 0)
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  return (
+    <main>
+      <header className="site-header">
+        <a className="brand" href="#top" aria-label={t.museum.replace('\n', ' ')}>
+          <span className="brand-mark">MSV</span>
+          <span>{t.museum.split('\n').map((line) => <span key={line}>{line}</span>)}</span>
+        </a>
+        <div className="header-actions">
+          <nav>
+            <a href="#sale">{t.rooms}</a>
+            {upcoming.length > 0 && <a href="#futuro">{t.upcomingNav}</a>}
+            <a className={route === 'quiz' ? 'active' : ''} href="#quiz">{t.learningNav}</a>
+            <a href="https://github.com/manzolo/MuseoScientificoVirtuale" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </nav>
+          <div className="display-controls">
+            <ThemeSwitch theme={theme} setTheme={setTheme} t={t} />
+            <LanguageSwitch language={language} setLanguage={setLanguage} label={t.language} />
+          </div>
+        </div>
+      </header>
+
+      {route === 'quiz' ? (
+        <QuizView language={language} t={t} />
+      ) : (
+        <HomeView
+          language={language}
+          t={t}
+          category={category}
+          setCategory={setCategory}
+          filteredExhibits={filteredExhibits}
+        />
+      )}
 
       <footer>
         <a className="brand" href="#top">
