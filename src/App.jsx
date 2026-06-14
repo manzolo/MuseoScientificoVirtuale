@@ -31,6 +31,9 @@ const copy = {
     footer: 'Esperienze scientifiche interattive, aperte a tutti.',
     openSource: 'Open source',
     language: 'Lingua',
+    theme: 'Tema',
+    lightTheme: 'Tema chiaro',
+    darkTheme: 'Tema scuro',
   },
   en: {
     museum: 'Virtual Science\nMuseum',
@@ -61,6 +64,9 @@ const copy = {
     footer: 'Interactive science experiences, open to everyone.',
     openSource: 'Open source',
     language: 'Language',
+    theme: 'Theme',
+    lightTheme: 'Light theme',
+    darkTheme: 'Dark theme',
   },
 }
 
@@ -118,9 +124,35 @@ function LanguageSwitch({ language, setLanguage, label }) {
   )
 }
 
+function ThemeSwitch({ theme, setTheme, t }) {
+  return (
+    <div className="theme-switch" aria-label={t.theme}>
+      <button
+        className={theme === 'light' ? 'active' : ''}
+        onClick={() => setTheme('light')}
+        aria-label={t.lightTheme}
+        title={t.lightTheme}
+      >
+        ☀
+      </button>
+      <button
+        className={theme === 'dark' ? 'active' : ''}
+        onClick={() => setTheme('dark')}
+        aria-label={t.darkTheme}
+        title={t.darkTheme}
+      >
+        ☾
+      </button>
+    </div>
+  )
+}
+
 export default function App() {
   const [language, setLanguage] = useState('it')
   const [category, setCategory] = useState('all')
+  const [theme, setTheme] = useState(
+    () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+  )
   const t = copy[language]
   const filteredExhibits = useMemo(
     () => category === 'all'
@@ -133,6 +165,22 @@ export default function App() {
     document.documentElement.lang = language
   }, [language])
 
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.documentElement.style.colorScheme = theme
+    document.querySelector('#theme-color')?.setAttribute(
+      'content',
+      theme === 'dark' ? '#07111f' : '#f0f2ee',
+    )
+  }, [theme])
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)')
+    const followBrowserTheme = (event) => setTheme(event.matches ? 'dark' : 'light')
+    media.addEventListener('change', followBrowserTheme)
+    return () => media.removeEventListener('change', followBrowserTheme)
+  }, [])
+
   return (
     <main>
       <header className="site-header">
@@ -143,11 +191,14 @@ export default function App() {
         <div className="header-actions">
           <nav>
             <a href="#sale">{t.rooms}</a>
-            <a href="#didattica">{t.learningNav}</a>
             <a href="#futuro">{t.upcomingNav}</a>
+            <a href="#didattica">{t.learningNav}</a>
             <a href="https://github.com/manzolo/MuseoScientificoVirtuale" target="_blank" rel="noreferrer">GitHub ↗</a>
           </nav>
-          <LanguageSwitch language={language} setLanguage={setLanguage} label={t.language} />
+          <div className="display-controls">
+            <ThemeSwitch theme={theme} setTheme={setTheme} t={t} />
+            <LanguageSwitch language={language} setLanguage={setLanguage} label={t.language} />
+          </div>
         </div>
       </header>
 
