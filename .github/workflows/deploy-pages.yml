@@ -26,6 +26,8 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - name: Use reproducible npm version
+        run: npm install --global npm@11.6.1
       - run: npm ci
       - run: npm run build
       - uses: actions/configure-pages@v5
