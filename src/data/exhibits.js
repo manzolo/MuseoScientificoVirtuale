@@ -119,6 +119,20 @@ export const exhibits = [
     image: '/images/exhibits/evo-tree-3d.webp',
     accent: '#8bd450',
   },
+  {
+    id: 'protein-suite',
+    number: '09',
+    category: 'biology',
+    eyebrow: { it: 'Biologia', en: 'Biology' },
+    title: { it: 'Protein Suite', en: 'Protein Suite' },
+    description: {
+      it: 'Cataloga proteine, analizza sequenze FASTA e studia proprietà biochimiche (massa, carica, pI, idrofobicità) con metodi e fonti dichiarati.',
+      en: 'Catalogue proteins, analyse FASTA sequences and study biochemical properties (mass, charge, pI, hydrophobicity) with stated methods and sources.',
+    },
+    url: 'https://manzolo.github.io/ProteinSuite/',
+    image: '/images/exhibits/protein-suite.webp',
+    accent: '#ff6f61',
+  },
 ]
 
 export const upcoming = []
