@@ -69,6 +69,13 @@ Tutti i contenuti sono in
 La `category` deve corrispondere a una voce dell'array `categories` (filtri). I
 progetti non ancora pubblicati vanno in `upcoming`.
 
+### Creare una nuova app scientifica
+
+Per generare con un agente AI una nuova esperienza coerente con questo ecosistema
+(sito statico bilingue per GitHub Pages), parti dal template di prompt in
+[`docs/prompt-template-nuovo-progetto.md`](docs/prompt-template-nuovo-progetto.md):
+compila i segnaposto `«...»` e incollalo all'agente.
+
 ### Pubblicazione
 
 Ogni push su `main` viene pubblicato automaticamente su GitHub Pages dal workflow
@@ -141,6 +148,13 @@ object to the `exhibits` array (bilingual `it`/`en` fields):
 
 The `category` must match an entry in the `categories` array (filters).
 Unreleased projects go in `upcoming`.
+
+### Create a new science app
+
+To generate a new experience consistent with this ecosystem (a bilingual static
+site for GitHub Pages) with an AI agent, start from the prompt template in
+[`docs/prompt-template-nuovo-progetto.md`](docs/prompt-template-nuovo-progetto.md):
+fill in the `«...»` placeholders and paste it to the agent.
 
 ### Deployment
 
